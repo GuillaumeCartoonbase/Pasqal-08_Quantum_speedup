@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" href="style.css" />
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Graph</title>
+	</head>
+	<body>
+		<canvas id="graph_A" width="1000" height="1000"></canvas>
+
+		<!-- RIVE  -->
+		<script src="https://unpkg.com/@rive-app/canvas@2.9.1"></script>
+
+		<script>
+			const Graph = new rive.Rive({
+				src: "graph.riv",
+				canvas: document.getElementById("graph_A"),
+				autoplay: true,
+				stateMachines: "interact",
+			});
+		</script>
+	</body>
+</html>
