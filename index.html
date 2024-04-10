@@ -7,18 +7,42 @@
 		<title>Graph</title>
 	</head>
 	<body>
-		<canvas id="graph_A" width="7000" height="4000"></canvas>
+		<canvas id="graph_A" width="866" height="585"></canvas>
+		<canvas id="graph_B" width="866" height="585"></canvas>
 
 		<!-- RIVE  -->
 		<script src="https://unpkg.com/@rive-app/canvas@2.9.1"></script>
 
 		<script>
-			const Graph = new rive.Rive({
-				src: "graph.riv",
+			const graph01 = new rive.Rive({
+				src: "08-graph-01.riv",
 				canvas: document.getElementById("graph_A"),
 				autoplay: true,
-				stateMachines: "interact",
+				stateMachines: "graph",
+				onLoad: () => {
+					// Prevent a blurry canvas by using the device pixel ratio
+					graph01.resizeDrawingSurfaceToCanvas();
+				},
 			});
+			const graph02 = new rive.Rive({
+				src: "08-graph-02.riv",
+				canvas: document.getElementById("graph_B"),
+				autoplay: true,
+				stateMachines: "graph",
+				onLoad: () => {
+					// Prevent a blurry canvas by using the device pixel ratio
+					graph02.resizeDrawingSurfaceToCanvas();
+				},
+			});
+			// Resize the drawing surface if the window resizes
+			window.addEventListener(
+				"resize",
+				() => {
+					graph01.resizeDrawingSurfaceToCanvas();
+					graph02.resizeDrawingSurfaceToCanvas();
+				},
+				false
+			);
 		</script>
 	</body>
 </html>
