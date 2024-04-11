@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" href="../src/style.css" />
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Graph 01</title>
+	</head>
+	<body>
+		<canvas id="graph_A" width="866" height="585"></canvas>
+
+		<!-- RIVE  -->
+		<script src="https://unpkg.com/@rive-app/canvas@2.9.1"></script>
+
+		<script>
+			const graph01 = new rive.Rive({
+				src: "../rive/int-08_01.riv",
+				canvas: document.getElementById("graph_A"),
+				autoplay: true,
+				stateMachines: "graph",
+				onLoad: () => {
+					// Prevent a blurry canvas by using the device pixel ratio
+					graph01.resizeDrawingSurfaceToCanvas();
+				},
+			});
+
+			// Resize the drawing surface if the window resizes
+			window.addEventListener(
+				"resize",
+				() => {
+					graph01.resizeDrawingSurfaceToCanvas();
+				},
+				false
+			);
+		</script>
+	</body>
+</html>
